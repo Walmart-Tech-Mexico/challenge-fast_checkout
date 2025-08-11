@@ -1,23 +1,19 @@
+package com.walmarttech.fastcheckout;
+
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Reto para el desarrollador: Caja Rápida");
 
         // TODO: Definir el tiempo total disponible en minutos.
         // El desarrollador debe establecer este valor.
-        int tiempoTotal = 30; // Valor inicial incorrecto. DEBE ser modificado.
+        int tiempoTotal = 30; // Ejemplo: 30 minutos disponibles.
 
         // TODO: Simular tiempos de atención para diferentes clientes (en minutos).
         // El desarrollador debe crear y/o modificar este array con diferentes tiempos.
-        int[] tiemposAtencion = {5, 3, 10, 2, 7}; // Array vacío. DEBE ser llenado con datos.
+        int[] tiemposAtencion = {5, 3, 10, 2, 7}; // Ejemplo: Tiempos de atención en minutos.
 
-        // TODO: Implementar la lógica para maximizar el número de clientes atendidos.
-        // El desarrollador debe ordenar los tiempos de atención y calcular cuántos clientes
-        // se pueden atender en el tiempo total disponible.
-
-        int clientesAtendidos = 0; // Inicialización. El desarrollador debe calcular el valor correcto.
-        int tiempoAcumulado = 0; // Inicialización. El desarrollador debe actualizar este valor.
-
-        // *** Inicio del área que el desarrollador debe implementar ***
         // Validar entradas
         if (tiempoTotal <= 0) {
             System.err.println("Error: El tiempo total debe ser mayor a 0.");
@@ -27,12 +23,22 @@ public class Main {
             System.err.println("Error: La lista de tiempos de atención no puede estar vacía.");
             return;
         }
-        // 1. Ordenar los tiempos de atención (investigar cómo usar java.util.Arrays.sort()).
+
+        // TODO: Implementar la lógica para maximizar el número de clientes atendidos.
+        // El desarrollador debe ordenar los tiempos de atención y calcular cuántos clientes
+        // se pueden atender en el tiempo total disponible.
+
+        int clientesAtendidos = 0; // Inicialización. El desarrollador debe calcular el valor correcto.
+        int tiempoAcumulado = 0; // Inicialización. El desarrollador debe actualizar este valor.
+
+
+        // *** Inicio del área que el desarrollador debe implementar ***
         // Imprimir array original
         System.out.println("Tiempos de atención originales: " + Arrays.toString(tiemposAtencion));
+        // 1. Ordenar los tiempos de atención (investigar cómo usar java.util.Arrays.sort()).
 
         // Ordenar tiempos de atención de menor a mayor para maximizar clientes atendidos
-        Arrays.sort(tiemposAtencion);
+        java.util.Arrays.sort(tiemposAtencion);
 
         // Imprimir array ordenado
         System.out.println("Tiempos de atención ordenados: " + Arrays.toString(tiemposAtencion));
@@ -42,7 +48,7 @@ public class Main {
         //    - El tiempo acumulado total.
         for (int tiempo : tiemposAtencion) {
             if (tiempoAcumulado + tiempo > tiempoTotal) {
-                break; // Parar si el próximo cliente excede el tiempo total
+                break;
             }
             tiempoAcumulado += tiempo;
             clientesAtendidos++;
